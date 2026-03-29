@@ -3,8 +3,12 @@
         aria-orientation="vertical">
       <a href="{% url 'dashboard' %}"
          class="nav-link text-dark {% if request.resolver_match.url_name == 'dashboard' %}active bg-warning{% endif %}">Dashboard</a>
+      {% if perms.auth.view_user %}
+         <a href="{% url 'users' %}"
+            class="nav-link text-dark {% if request.resolver_match.url_name == 'users' %}active bg-warning{% endif %}">Users</a>
+      {% endif %}
       <a href="{% url 'categories' %}"
-         class="nav-link text-dark {% if request.resolver_match.url_name == 'categories' %}active bg-warning{% endif %}">categories</a>
+         class="nav-link text-dark {% if request.resolver_match.url_name == 'categories' %}active bg-warning{% endif %}">Categories</a>
       <a href="{% url 'posts' %}"
          class="nav-link text-dark {% if request.resolver_match.url_name == 'posts' %}active bg-warning{% endif %}">Blogs</a>
       <a href="" class="nav-link text-dark">Logout</a>
